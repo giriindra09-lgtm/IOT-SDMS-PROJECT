@@ -36,7 +36,7 @@ jobs:
           rm -rf deploy_bundle
           mkdir -p deploy_bundle/api
           cp -r dist/* deploy_bundle/
-          cp public/.htaccess deploy_bundle/.htaccess
+          rm -f deploy_bundle/.htaccess
           cp api/*.php deploy_bundle/api/
           rm -f deploy_bundle/api/config.local.php
 
@@ -51,4 +51,9 @@ jobs:
           exclude: |
             **/.git*
             **/node_modules/**
+            .well-known/**
+            cgi-bin/**
+            .htaccess
+            .user.ini
+            php.ini
             api/config.local.php
