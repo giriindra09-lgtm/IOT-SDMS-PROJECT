@@ -1,0 +1,54 @@
+name: Build dan Deploy ke cPanel
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build frontend Vite
+        env:
+          VITE_MQTT_URL: ${{ secrets.VITE_MQTT_URL }}
+          VITE_MQTT_USERNAME: ${{ secrets.VITE_MQTT_USERNAME }}
+          VITE_MQTT_PASSWORD: ${{ secrets.VITE_MQTT_PASSWORD }}
+          VITE_MQTT_TOPIC_PREFIX: ${{ secrets.VITE_MQTT_TOPIC_PREFIX }}
+          VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
+        run: npm run build
+
+      - name: Siapkan bundle deploy (Frontend + PHP API)
+        run: |
+          rm -rf deploy_bundle
+          mkdir -p deploy_bundle/api
+          cp -r dist/* deploy_bundle/
+          cp public/.htaccess deploy_bundle/.htaccess
+          cp api/*.php deploy_bundle/api/
+          rm -f deploy_bundle/api/config.local.php
+
+      - name: Upload ke cPanel via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.CPANEL_FTP_SERVER }}
+          username: ${{ secrets.CPANEL_FTP_USERNAME }}
+          password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+          local-dir: ./deploy_bundle/
+          server-dir: ${{ secrets.CPANEL_SERVER_DIR }}
+          exclude: |
+            **/.git*
+            **/node_modules/**
+            api/config.local.php

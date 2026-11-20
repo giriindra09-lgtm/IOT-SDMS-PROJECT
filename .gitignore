@@ -1,0 +1,9 @@
+node_modules
+dist
+deploy_bundle
+.env
+.env.local
+.env.*.local
+api/config.local.php
+*.log
+.DS_Store

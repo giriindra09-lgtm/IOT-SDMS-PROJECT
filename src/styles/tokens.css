@@ -1,0 +1,92 @@
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+  --bg-canvas: #f4f3ef;
+  --bg-surface: #ffffff;
+  --bg-inset: #eae8e1;
+  --border-hairline: #d3cfc4;
+  --border-control: #6e6a60;
+  --ink-primary: #16181a;
+  --ink-muted: #4a4e54;
+  --accent-fill: #0b4f8a;
+  --accent-hover: #083d6b;
+  --accent-text: #0b4f8a;
+  --accent-tint: #e7f0f8;
+  --accent-ink-on-fill: #ffffff;
+
+  --status-normal-fg: #11613b;
+  --status-normal-bg: #e5f4ec;
+  --status-normal-border: #8dc7a9;
+
+  --status-waspada-fg: #7a4600;
+  --status-waspada-bg: #fef3d6;
+  --status-waspada-border: #d9a441;
+
+  --status-kritis-fg: #9e1b1b;
+  --status-kritis-bg: #fde8e8;
+  --status-kritis-border: #e07c7c;
+  --status-kritis-solid: #b91c1c;
+  --status-kritis-solid-ink: #ffffff;
+
+  --status-invalid-fg: #4a4e54;
+  --status-invalid-bg: #eae8e1;
+  --status-invalid-border: #9c988d;
+
+  --focus-ring: #0b4f8a;
+  --shadow-elevated: 0 4px 14px rgba(22, 24, 26, 0.08);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg-canvas: #111417;
+  --bg-surface: #181c20;
+  --bg-inset: #22272d;
+  --border-hairline: #2e353d;
+  --border-control: #7a848e;
+  --ink-primary: #f0f2f4;
+  --ink-muted: #a8b1ba;
+  --accent-fill: #155d9e;
+  --accent-hover: #1d6eb8;
+  --accent-text: #6eb4f7;
+  --accent-tint: #13283d;
+  --accent-ink-on-fill: #ffffff;
+
+  --status-normal-fg: #6ee0a8;
+  --status-normal-bg: #102b1e;
+  --status-normal-border: #256347;
+
+  --status-waspada-fg: #f6c15c;
+  --status-waspada-bg: #2d210b;
+  --status-waspada-border: #87611d;
+
+  --status-kritis-fg: #ff8a8a;
+  --status-kritis-bg: #331315;
+  --status-kritis-border: #9c383e;
+  --status-kritis-solid: #b91c1c;
+  --status-kritis-solid-ink: #ffffff;
+
+  --status-invalid-fg: #b4bcc4;
+  --status-invalid-bg: #22272d;
+  --status-invalid-border: #5c6670;
+
+  --focus-ring: #6eb4f7;
+  --shadow-elevated: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+:root {
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+
+  --radius-tag: 2px;
+  --radius-control: 6px;
+  --radius-panel: 8px;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+
+  --transition-fast: 110ms ease-out;
+}
