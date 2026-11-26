@@ -1,6 +1,7 @@
 node_modules
 dist
 deploy_bundle
+sdms-deploy.zip
 .env
 .env.local
 .env.*.local

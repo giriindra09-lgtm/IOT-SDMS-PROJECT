@@ -11,12 +11,11 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'GET') {
 
 $pdo = get_pdo();
 $requiredTables = ['vehicles', 'driver_baselines', 'telemetry_logs', 'alarm_logs'];
+$existingTables = $pdo->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
 $tableStatus = [];
 
 foreach ($requiredTables as $table) {
-    $stmt = $pdo->prepare('SHOW TABLES LIKE ?');
-    $stmt->execute([$table]);
-    $tableStatus[$table] = $stmt->fetchColumn() !== false;
+    $tableStatus[$table] = in_array($table, $existingTables, true);
 }
 
 $allTablesReady = !in_array(false, $tableStatus, true);
