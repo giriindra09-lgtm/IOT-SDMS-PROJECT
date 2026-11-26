@@ -118,19 +118,24 @@ input[type='color'] {
   min-width: 0;
 }
 
-.logo-placeholder {
+.brand-logo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.25rem 0.5rem;
-  border: 1.5px dashed var(--border-control);
-  border-radius: var(--radius-tag);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--ink-muted);
-  background: var(--bg-inset);
+  width: 40px;
+  height: 40px;
+  padding: 4px;
+  border-radius: 9px;
+  background: var(--accent-fill);
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+.brand-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .brand-title {

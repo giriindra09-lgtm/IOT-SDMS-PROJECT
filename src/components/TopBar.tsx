@@ -78,8 +78,14 @@ export function TopBar({
       <header className="topbar">
         <div className="topbar-inner">
           <div className="brand-group">
-            <span className="logo-placeholder" aria-label="Placeholder logo tim">
-              [LOGO]
+            <span className="brand-logo">
+              <img
+                src="/sdms-logo-mark.png"
+                alt="Logo SDMS POLINES TE-3E"
+                className="brand-logo-img"
+                width={32}
+                height={32}
+              />
             </span>
             <div className="brand-title">
               <span className="brand-code">SDMS Armada</span>
